@@ -1,0 +1,63 @@
+<%- include('partials/header') %>
+
+        <!-- Main -->
+        <div id="main" class="wrapper style1">
+            <div class="container">
+                <header class="major">
+                    <h2>CRUD műveletek</h2>
+                    <p>Itt CRUD műveleteket hajthatunk végre az adatbázis 'nyelv' tábláján.</p>
+                </header>
+
+                <!-- Content -->
+                <section id="crud-container">
+                    <button onclick="createRecord()">Rekord hozzáadása</button>
+                    <table id="crud-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Ország</th>
+                                <th>Nyelv</th>
+                                <th>Műveletek</th>
+                            </tr>
+                        </thead>
+                        <tbody id="crud-table-body">
+                            <!-- Rekordok itt kerülnek dinamikusan megjelenítésre -->
+                        </tbody>
+                    </table>
+                </section>
+
+                <dialog id="create-dialog">
+                    <form id="create-form" onsubmit="event.preventDefault(); createRecordFromForm()">
+                        <label for="orszag">Ország:</label>
+                        <input type="text" id="orszag" name="orszag" required>
+                        <br />
+                        <label for="nyelv">Nyelv:</label>
+                        <input type="text" id="nyelv" name="nyelv" required>
+                        <br />
+                        <button type="submit">Hozzáad</button>
+                        <button type="button" onclick="document.getElementById('create-dialog').close()">Mégse</button>
+                    </form>
+                </dialog>
+
+                <dialog id="edit-dialog">
+                    <form id="edit-form" onsubmit="event.preventDefault(); updateRecordFromForm()">
+                        <input type="hidden" id="id" name="id" required>
+                        <label for="orszag">Ország:</label>
+                        <input type="text" id="orszag" name="orszag">
+                        <br />
+                        <label for="nyelv">Nyelv:</label>
+                        <input type="text" id="nyelv" name="nyelv">
+                        <br />
+                        <button type="submit">Rekord frissítése</button>
+                        <button type="button" onclick="document.getElementById('edit-dialog').close()">Mégse</button>
+                    </form>
+                </dialog>
+
+                <script src="assets/js/crud.js"></script>
+                </section>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <%- include('partials/footer') %>

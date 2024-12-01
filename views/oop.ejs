@@ -1,0 +1,138 @@
+<%- include('partials/header') %>
+
+    <!-- Main -->
+    <div id="main" class="wrapper style1">
+        <div class="container">
+            <header class="major">
+                <h2>Objektum-orientált JS</h2>
+                <p>Egyszerű példák az Objektum-orientált JS bemutatására.</p>
+            </header>
+
+            <!-- Content -->
+            <section id="content">
+                <h3>Járművek és típusaik</h3>
+                <div id="vehicle-output"></div>
+
+                <script>
+                    // Alaposztály: Jarmu
+                    class Jarmu {
+                        constructor(marka, sebesseg) {
+                            this.marka = marka;
+                            this.sebesseg = sebesseg;
+                        }
+
+                        mozog() {
+                            return `A ${this.marka} ${this.sebesseg} km/h sebességgel halad.`;
+                        }
+                    }
+
+                    // Alosztály: Autó
+                    class Auto extends Jarmu {
+                        constructor(marka, sebesseg, uzemanyag) {
+                            super(marka, sebesseg); // Örökölt attribútumok
+                            this.uzemanyag = uzemanyag;
+                        }
+
+                        mivel() {
+                            return `A ${this.marka} üzemanyaga a(z): ${this.uzemanyag}.`;
+                        }
+                    }
+
+                    // Alosztály: Kerékpár
+                    class Kerekpar extends Jarmu {
+                        constructor(marka, sebesseg, type) {
+                            super(marka, sebesseg); // Örökölt attribútumok
+                            this.type = type;
+                        }
+
+                        pedal() {
+                            return `A ${this.marka} olyan ${this.type}kerékpár, amit egy ember teker.`;
+                        }
+                    }
+
+                    // Példányosítás
+                    const auto1 = new Auto('BMW', 130, 'Benzin');
+                    const auto2 = new Auto('Mercedes', 204, 'Dízel')
+                    const kerekpar1 = new Kerekpar('Csepel', 30, 'utcai');
+
+                    // Eredmények megjelenítése
+                    const vehicleOutput = document.getElementById('vehicle-output');
+                    vehicleOutput.innerHTML = `
+                                    <p>${auto1.mozog()}</p>
+                                    <p>${auto1.mivel()}</p>
+                                    <p>${auto2.mozog()}</p>
+                                    <p>${auto2.mivel()}</p>
+                                    <p>${kerekpar1.mozog()}</p>
+                                    <p>${kerekpar1.pedal()}</p>
+                                `;
+                </script>
+
+                <h3>Állatok és viselkedésük</h3>
+                <div id="animal-output"></div>
+
+                <script>
+                    // Alaposztály: Állat
+                    class Allat {
+                        constructor(nev) {
+                            this.nev = nev;
+                        }
+
+                        speak() {
+                            return `${this.nev} csóválja a farkát.`;
+                        }
+                    }
+
+                    // Alosztály: Kutya
+                    class Kutya extends Allat {
+                        constructor(nev, fajta) {
+                            super(nev); // Alaposztály attribútumai
+                            this.fajta = fajta;
+                        }
+
+                        ugat() {
+                            return `${this.nev}, a ${this.fajta}, szimatol.`;
+                        }
+
+                        jatek() {
+                            return `${this.nev} játszik!`;
+                        }
+                    }
+
+                    // Alosztály: Madár
+                    class Madar extends Allat {
+                        constructor(nev, faj) {
+                            super(nev); // Alaposztály attribútumai
+                            this.faj = faj;
+                        }
+
+                        csip() {
+                            return `${this.nev}, a ${this.faj}, énekel.`;
+                        }
+
+                        repul() {
+                            return `${this.nev} repül a felhők között!`;
+                        }
+                    }
+
+                    // Példányosítás
+                    const kutya1 = new Kutya('Buksi', 'Labrador');
+                    const kutya2 = new Kutya('Rex', 'Németjuhász');
+                    const madar1 = new Madar('Csipcsirip', 'Rigó');
+
+                    // Eredmények megjelenítése
+                    const animalOutput = document.getElementById('animal-output');
+                    animalOutput.innerHTML = `
+        <p>${kutya1.ugat()}</p>
+        <p>${kutya1.jatek()}</p>
+        <p>${kutya2.ugat()}</p>
+        <p>${kutya2.jatek()}</p>
+        <p>${madar1.csip()}</p>
+        <p>${madar1.repul()}</p>
+    `;
+                </script>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <%- include('partials/footer') %>
