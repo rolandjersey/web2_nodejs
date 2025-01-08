@@ -1,0 +1,102 @@
+<!-- Header -->
+        <%- include('partials/header') %>
+
+        <!-- Main -->
+        <div id="main" class="wrapper style1">
+            <div class="container">
+                <header class="major">
+                    <h2>Adatbázis menü</h2>
+                    <p>A választott adatbázis 3 táblájának a rekordjainak megjelenítése (limitáltan).</p>
+                </header>
+
+                <!-- DAL tábla megjelenítése -->
+                <section id="dal-table">
+                    <h3>Dal tábla</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Év</th>
+                                <th>Sorrend</th>
+                                <th>Ország</th>
+                                <th>Nyelv</th>
+                                <th>Előadó</th>
+                                <th>Eredeti cím</th>
+                                <th>Magyar cím</th>
+                                <th>Helyezés</th>
+                                <th>Pontszám</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% dal.forEach(function(row) { %>
+                            <tr>
+                                <td><%= row.id %></td>
+                                <td><%= row.ev %></td>
+                                <td><%= row.sorrend %></td>
+                                <td><%= row.orszag %></td>
+                                <td><%= row.nyelv %></td>
+                                <td><%= row.eloado %></td>
+                                <td><%= row.eredeti %></td>
+                                <td><%= row.magyar %></td>
+                                <td><%= row.helyezes %></td>
+                                <td><%= row.pontszam %></td>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- NYELV tábla megjelenítése -->
+                <section id="nyelv-table">
+                    <h3>Nyelv tábla</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Ország</th>
+                                <th>Nyelv</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% nyelv.forEach(function(row) { %>
+                            <tr>
+                                <td><%= row.id %></td>
+                                <td><%= row.orszag %></td>
+                                <td><%= row.nyelv %></td>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- VERSENY tábla megjelenítése -->
+                <section id="verseny-table">
+                    <h3>Verseny tábla</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Év</th>
+                                <th>Dátum</th>
+                                <th>Város</th>
+                                <th>Ország</th>
+                                <th>Indulók száma</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% verseny.forEach(function(row) { %>
+                            <tr>
+                                <td><%= row.ev %></td>
+                                <td><%= row.datum %></td>
+                                <td><%= row.varos %></td>
+                                <td><%= row.orszag %></td>
+                                <td><%= row.induloszam %></td>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </section>
+
+            </div>
+        </div>
+
+        <%- include('partials/footer') %>

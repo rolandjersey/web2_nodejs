@@ -1,0 +1,38 @@
+ <!-- Header -->
+        <%- include('partials/header') %>
+
+        <!-- Main -->
+        <div id="main" class="wrapper style1">
+            <div class="container">
+                <header class="major">
+                    <h2>Kapcsolat</h2>
+                    <p>Küldjön nekünk üzenetet.</p>
+                </header>
+
+                <!-- Content -->
+                <section id="content">
+                    <form method="post" action="/send_message">
+                        <div class="row gtr-uniform">
+                            <div class="col-6 col-12-xsmall">
+                                <input type="text" name="name" id="name" placeholder="Név" required />
+                            </div>
+                            <div class="col-6 col-12-xsmall">
+                                <input type="email" name="email" id="email" placeholder="E-mail cím" required />
+                            </div>
+                            <div class="col-12">
+                                <textarea name="message" id="message" rows="4" placeholder="Üzenet" required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <ul class="actions">
+                                    <li><input type="submit" value="Küldés!" class="primary" /></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <%- include('partials/footer') %>

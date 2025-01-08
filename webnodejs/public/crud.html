@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>CRUD</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <h1 id="logo"><a href="index.html"></a></h1>
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Főoldal</a></li>
+                    <li><a href="database.html">Adatbázis</a></li>
+                    <li><a href="contact.html">Kapcsolat</a></li>
+                    <li><a href="messages.html">Üzenetek</a></li>
+                    <li><a href="crud.html" class="active">CRUD</a></li>
+                    <li><a href="oop.html">OOP-Javascript</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Main -->
+            <div id="main" class="wrapper style1">
+                <div class="container">
+                    <header class="major">
+                        <h2>CRUD műveletek</h2>
+                        <p>Itt CRUD műveleteket hajthatunk végre az adatbázis 'nyelv' tábláján.</p>
+                    </header>
+
+                    <!-- Content -->
+                        <section id="content">
+                            <div id="crud-container">
+                                <button onclick="createRecord()">Rekord hozzáadása</button>
+                                <table id="crud-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Ország</th>
+                                            <th>Nyelv</th>
+                                            <th>Műveletek</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="crud-table-body">
+                                        <!-- Records will be dynamically inserted here -->
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <dialog id="create-dialog">
+                                <form id="create-form" onsubmit="event.preventDefault(); createRecordFromForm()">
+                                    <label for="orszag">Ország:</label>
+                                    <input type="text" id="orszag" name="orszag" required>
+                                    <br/>
+                                    <label for="nyelv">Nyelv:</label>
+                                    <input type="text" id="nyelv" name="nyelv" required>
+                                    <br/>
+                                    <button type="submit">Hozzáad</button>
+                                    <button type="cancel">Mégse</button>
+                                </form>
+                            </dialog>
+                            
+                            <dialog id="edit-dialog">
+                                <form id="edit-form" onsubmit="event.preventDefault(); updateRecordFromForm()">
+                                    <input type="hidden" id="id" name="id" required>
+                                    <label for="orszag">Ország:</label>
+                                    <input type="text" id="orszag" name="orszag" required>
+                                    <br/>
+                                    <label for="nyelv">Nyelv:</label>
+                                    <input type="text" id="nyelv" name="nyelv" required>
+                                    <br/>
+                                    <button type="submit">Rekord frissítése</button>
+                                    <button type="cancel">Mégse</button>
+                                </form>
+                            </dialog>
+                        </section>
+
+                </div>
+            </div>
+
+        <!-- Footer -->
+            <footer id="footer">
+                <ul class="icons">
+                    <li><a href="https://nje.hu/" class="icon brands alt fa-info"><span class="label">Egyetem</span></a></li>
+                    <li><a href="/contact" class="icon solid alt fa-envelope"><span class="label">Üzenet</span></a></li>
+                </ul>
+                    <ul class="copyright">
+                        <li>&copy; Jersey Roland - CXL20B</li>
+                        <li>&copy; Juhász Erika - XHWWJM</li>
+                        <li>Forrás: <a href="http://html5up.net">HTML5 UP</a></li>
+                    </ul>
+            </footer>
+
+    </div>
+
+    <!-- Scripts -->
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/jquery.scrolly.min.js"></script>
+        <script src="../js/jquery.dropotron.min.js"></script>
+        <script src="../js/jquery.scrollex.min.js"></script>
+        <script src="../js/browser.min.js"></script>
+        <script src="../js/breakpoints.min.js"></script>
+        <script src="../js/util.js"></script>
+        <script src="../js/main.js"></script>
+
+</body>
+</html>
